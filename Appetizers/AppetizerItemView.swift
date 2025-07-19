@@ -17,10 +17,10 @@ struct AppetizerItemView: View {
                 .frame(width: 120, height: 90)
                 .cornerRadius(8)
             VStack (alignment: .leading) {
-                Text(appetizer.name)
+                Text(appetizer.title)
                     .font(.title2)
                     .fontWeight(.medium)
-                Text("\(appetizer.price, specifier: "%.2f")")
+                Text("\(appetizer.id, specifier: "%.2f")")
                 
                     
             }

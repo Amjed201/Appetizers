@@ -13,8 +13,10 @@ final class NetworkManager {
     
     private init() {}
     
-    static let BaseUrl = "https://mzhyi8cn6zyp.manus.space/api/"
-    private let appetizerUrl = BaseUrl + "appetizers"
+//    static let BaseUrl = "https://mzhyi8cn6zyp.manus.space/api/"
+//    private let appetizerUrl = BaseUrl + "appetizers"
+    static let BaseUrl = "https://api.sampleapis.com/"
+    private let appetizerUrl = BaseUrl + "coffee/hot/"
     
     func getAppetizers(completed: @escaping (Result<[Appetizer], APError>) -> Void) {
         
@@ -30,7 +32,7 @@ final class NetworkManager {
             }
             
             guard let response = response as? HTTPURLResponse , response.statusCode == 200 else {
-                print(response)
+                print(response!)
                 completed(.failure(.invalidResponse))
                 return
             }
@@ -43,8 +45,8 @@ final class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let decodedResponse = try
-                decoder.decode(AppetizerResponse.self, from: data)
-                completed(.success(decodedResponse.request))
+                decoder.decode([Appetizer].self, from: data)
+                completed(.success(decodedResponse))
             } catch {
                 completed(.failure(.invalidData))
             }

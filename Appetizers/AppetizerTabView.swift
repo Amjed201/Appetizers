@@ -24,7 +24,7 @@ struct AppetizerTabView: View {
                 }
             
         }
-        .accentColor(Color("primaryColor"))
+        .accentColor(Color("primaryBrand"))
     }
     
 }
