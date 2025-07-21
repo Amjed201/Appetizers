@@ -12,6 +12,10 @@ struct AppetizerItemView: View {
     
     var body: some View {
         HStack {
+            /*
+             short way for displaying image is
+             AsyncImage(url: URL(string: "https://example.com/image.jpg"))
+             */
             AppetizerItemImage(urlString: appetizer.image)
                 .frame(width: 120, height: 90)
                 .cornerRadius(8)
